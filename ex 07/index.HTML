@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador de Palavras</title>
+</head>
+<body>
+
+<h2>Contador de Palavras</h2>
+
+<textarea id="texto" rows="4" cols="50"></textarea><br><br>
+<button onclick="contarPalavras()">Contar Palavras</button><br><br>
+
+<p id="resultado"></p>
+
+<script>
+function contarPalavras() {
+    var texto = document.getElementById("texto").value;
+    // Remover espaços em branco extras no início e no final da string
+    texto = texto.trim();
+    // Dividir a string em palavras usando espaços como delimitador
+    var palavras = texto.split(/\s+/);
+    // Contar o número de palavras
+    var numPalavras = palavras.length;
+    // Exibir o resultado
+    document.getElementById("resultado").innerText = "Número de palavras: " + numPalavras;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Senha</title>
+</head>
+<body>
+    <h1>Validador de Senha</h1>
+    <form onsubmit="validatePassword(); return false;">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" required>
+        <button type="submit">Verificar Senha</button>
+    </form>
+    <p id="validationResult"></p>
+
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+
+            // Verifica se a senha tem pelo menos 8 caracteres
+            if (password.length < 8) {
+                document.getElementById("validationResult").textContent = "A senha deve ter pelo menos 8 caracteres.";
+                return;
+            }
+
+            // Verifica se a senha contém letras maiúsculas
+            if (!/[A-Z]/.test(password)) {
+                document.getElementById("validationResult").textContent = "A senha deve conter letras maiúsculas.";
+                return;
+            }
+
+            // Verifica se a senha contém letras minúsculas
+            if (!/[a-z]/.test(password)) {
+                document.getElementById("validationResult").textContent = "A senha deve conter letras minúsculas.";
+                return;
+            }
+
+            // Verifica se a senha contém números
+            if (!/\d/.test(password)) {
+                document.getElementById("validationResult").textContent = "A senha deve conter números.";
+                return;
+            }
+
+            // Verifica se a senha contém caracteres especiais
+            if (!/[^A-Za-z0-9]/.test(password)) {
+                document.getElementById("validationResult").textContent = "A senha deve conter caracteres especiais.";
+                return;
+            }
+
+            // Se a senha atender a todos os critérios
+            document.getElementById("validationResult").textContent = "A senha é válida!";
+        }
+    </script>
+</body>
+</html>
